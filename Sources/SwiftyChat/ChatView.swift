@@ -71,7 +71,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
             ScrollViewReader { proxy in
                 LazyVStack {
                     ForEach(messages) { message in
-                        chatMessageCellContainer(in: geometry.size, with: message)
+                        chatMessageCellContainer(in: geometry.size, with: message).flippedUpsideDown()
                     }
                     Spacer()
                         .frame(height: inset.bottom)
