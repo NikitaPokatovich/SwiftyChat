@@ -9,19 +9,6 @@
 import SwiftUI
 import SwiftUIEKtensions
 
-struct FlippedUpsideDown: ViewModifier {
-   func body(content: Content) -> some View {
-    content
-           .rotationEffect(.radians(.pi))
-           .scaleEffect(x: -1, y: 1, anchor: .center)
-   }
-}
-extension View{
-   func flippedUpsideDown() -> some View{
-     self.modifier(FlippedUpsideDown())
-   }
-}
-
 public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
     
     @Binding private var messages: [Message]
@@ -71,13 +58,12 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
             ScrollViewReader { proxy in
                 LazyVStack {
                     ForEach(messages) { message in
-                        chatMessageCellContainer(in: geometry.size, with: message).flippedUpsideDown()
+                        chatMessageCellContainer(in: geometry.size, with: message)
                     }
                     Spacer()
                         .frame(height: inset.bottom)
                         .id("bottom")
                 }
-                .flippedUpsideDown()
                 .padding(EdgeInsets(top: inset.top, leading: inset.leading, bottom: 0, trailing: inset.trailing))
                 .onChange(of: scrollToBottom) { value in
                     if value {
