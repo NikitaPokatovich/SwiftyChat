@@ -60,6 +60,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
                     ForEach(messages) { message in
                         chatMessageCellContainer(in: geometry.size, with: message)
                             .rotationEffect(.radians(.pi))
+                            .scaleEffect(x: -1, y: 1, anchor: .center)
                     }
                     Spacer()
                         .frame(height: inset.bottom)
