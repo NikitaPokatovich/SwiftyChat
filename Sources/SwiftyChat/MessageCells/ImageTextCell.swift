@@ -52,11 +52,11 @@ internal struct ImageTextCell<Message: ChatMessage>: View {
                 .foregroundColor(cellStyle.textStyle.textColor)
                 .padding(cellStyle.textPadding)
         }
-            .background(cellStyle.cellBackgroundColor)
             .shadow(
                 color: cellStyle.cellShadowColor,
                 radius: cellStyle.cellShadowRadius
             )
+            .background(cellStyle.cellBackgroundColor)
             .contentShape(RoundedRectangle(cornerRadius: cellStyle.cellCornerRadius, style: .continuous))
             .clipShape(RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners))
             .overlay(
