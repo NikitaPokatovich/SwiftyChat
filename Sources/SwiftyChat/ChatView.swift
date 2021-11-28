@@ -59,6 +59,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
                 LazyVStack {
                     ForEach(messages) { message in
                         chatMessageCellContainer(in: geometry.size, with: message)
+                            .rotationEffect(.radians(.pi))
                     }
                     Spacer()
                         .frame(height: inset.bottom)
