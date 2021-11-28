@@ -53,6 +53,10 @@ internal struct ImageTextCell<Message: ChatMessage>: View {
                 .padding(cellStyle.textPadding)
         }
             .background(cellStyle.cellBackgroundColor)
+            .shadow(
+                color: cellStyle.cellShadowColor,
+                radius: cellStyle.cellShadowRadius
+            )
             .contentShape(RoundedRectangle(cornerRadius: cellStyle.cellCornerRadius, style: .continuous))
             .clipShape(RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners))
             .overlay(
@@ -66,10 +70,6 @@ internal struct ImageTextCell<Message: ChatMessage>: View {
                     color: cellStyle.cellShadowColor,
                     radius: cellStyle.cellShadowRadius
                 )
-            )
-            .shadow(
-                color: cellStyle.cellShadowColor,
-                radius: cellStyle.cellShadowRadius
             )
     }
     
